@@ -137,7 +137,7 @@
         }
         img{
             // width: 85%;
-            width: 47%;
+            width: 48%;
             height:100px;
             // box-shadow: 5px 5px 5px #888888;
             border-radius: 8px;
@@ -159,8 +159,12 @@
         .el-tabs__header{
             margin:5px 0 0 0;
         }
+        .el-tabs__nav{
+            margin-left:10px;
+        }
         p{
-            margin:14px;
+            color:#000;
+            margin:10px 5px;
              white-space:nowrap;
              overflow: hidden;
              text-overflow: ellipsis;

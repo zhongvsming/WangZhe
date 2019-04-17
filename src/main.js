@@ -1,11 +1,16 @@
 import Vue from 'vue'
 import App from './App.vue'
+// 全局引入Element
 import './plugins/element.js'
-import { Carousel,CarouselItem,Tabs,TabPane } from 'element-ui';
-Vue.component(Carousel.name, Carousel);
-Vue.component(CarouselItem.name, CarouselItem);
-Vue.component(Tabs.name,Tabs);
-Vue.component(TabPane.name,TabPane)
+import ElementUI from 'element-ui';
+import 'element-ui/lib/theme-chalk/index.css';
+Vue.use(ElementUI);
+// import { Carousel,CarouselItem,Tabs,TabPane,RadioGroup } from 'element-ui';
+// Vue.component(Carousel.name, Carousel);
+// Vue.component(CarouselItem.name, CarouselItem);
+// Vue.component(Tabs.name,Tabs);
+// Vue.component(TabPane.name,TabPane)
+// 引入mui
 import './lib/mui/css/mui.min.css'
 import './lib/mui/css/icons-extra.css'
 import router from './router'
