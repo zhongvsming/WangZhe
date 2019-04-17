@@ -1,5 +1,5 @@
 <template>
-    <div>
+    <div class="container">
         <!-- 轮播图 -->
         <div class="banner">
             <el-carousel height="150px">
@@ -112,6 +112,9 @@
 </script>
 
 <style lang="scss">
+    .container{
+   
+    }
     .banner{
         img{
             width:100%;
@@ -141,7 +144,7 @@
         }
     }
     .news-list{
-        width:90%;
+        width:95%;
         margin:0 auto;
         ul{
             list-style:none;
@@ -157,6 +160,7 @@
             margin:5px 0 0 0;
         }
         p{
+            margin:14px;
              white-space:nowrap;
              overflow: hidden;
              text-overflow: ellipsis;
