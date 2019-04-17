@@ -1,66 +1,25 @@
 <template>
     <div class="container">
 
+
         <!-- 顶部title -->
         <div class="titleBar">
            <span>全部英雄</span>
         </div>    
 
         <div class="content">
+             <Button@click="value2 = true"  style="width:50px;position:fixed;left:0;top:50%; opacity:0.4;"><span class="mui-icon mui-icon-arrowright"></span></Button>
+
             <!-- 侧边导航栏 -->
             <div class="navMenu">
-<!--侧滑菜单部分-->
-			<aside id="offCanvasSide" class="mui-off-canvas-left">
-				<div id="offCanvasSideScroll" class="mui-scroll-wrapper">
-					<div class="mui-scroll">
-						<div class="title">侧滑导航</div>
-						<div class="content">
-							这是可拖动式侧滑菜单示例，你可以在这里放置任何内容；关闭侧滑菜单有多种方式： 1.在手机屏幕任意位置向左拖动(drag)；2.点击本侧滑菜单页之外的任意位置; 3.点击如下红色按钮
-							<span class="android-only">；4.Android手机按back键；5.Android手机按menu键
-							</span>。
-							<p style="margin: 10px 15px;">
-								<button id="offCanvasHide" type="button" class="mui-btn mui-btn-danger mui-btn-block" style="padding: 5px 20px;">关闭侧滑菜单</button>
-							</p>
-
-						</div>
-						<div class="title" style="margin-bottom: 25px;">侧滑列表示例</div>
-						<ul class="mui-table-view mui-table-view-chevron mui-table-view-inverted">
-							<li class="mui-table-view-cell">
-								<a class="mui-navigate-right">
-									Item 1
-								</a>
-							</li>
-							<li class="mui-table-view-cell">
-								<a class="mui-navigate-right">
-									Item 2
-								</a>
-							</li>
-							<li class="mui-table-view-cell">
-								<a class="mui-navigate-right">
-									Item 3
-								</a>
-							</li>
-							<li class="mui-table-view-cell">
-								<a class="mui-navigate-right">
-									Item 4
-								</a>
-							</li>
-							<li class="mui-table-view-cell">
-								<a class="mui-navigate-right">
-									Item 5
-								</a>
-							</li>
-							<li class="mui-table-view-cell">
-								<a class="mui-navigate-right">
-									Item 6
-								</a>
-							</li>
-						</ul>
-					</div>
-                    				</div>
-			</aside>
+                <Drawer title="Heros" placement="left" :closable="false" v-model="value2">
+                    <ul style="'text-style':none;">
+                        <li v-for="item of heros" :key="item.id" class="menuLi" >
+                            <img :src="item.url" alt="" style="width:50px;height:50px"><span style="display:'inline-block;height:100%;fontSize:1.5em;'line-height':50px;">{{item.name}}</span>
+                        </li>    
+                    </ul>
+                </Drawer>
             </div>   
-
 
             <!-- 内容区域 -->
             <div class="main">
@@ -96,7 +55,8 @@
                     {id:13,name:'米莱迪',url:'https://game.gtimg.cn/images/yxzj/img201606/heroimg/504/504.jpg'},
                     {id:14,name:'狂铁',url:'https://game.gtimg.cn/images/yxzj/img201606/heroimg/503/503.jpg'},
                     {id:15,name:'异星',url:'https://game.gtimg.cn/images/yxzj/img201606/heroimg/197/197.jpg'}
-                ]
+                ],
+                value2: false
             }
         },
         methods: {
@@ -111,29 +71,30 @@
 </script>
 
 <style lang="scss" scoped>
+.container{
     .titleBar{
+        width:100%;
         height:35px;
         text-align:center;
         background-color:#000;
         color:gold;
+        position:fixed;
 
         span{
         line-height:35px;
         }
     }
     .content{
+    position:relative;
+
         // display:flex;
         // background:#000;
-    
+        padding-top:35px;
         .main{
-            margin-left:10px;
-            border:1px red solid;
+            // margin-left:10px;
+            // border:1px red solid;
             // background:#fff;
         }
-        .navMenu{
- 
-        }
     }
-
-
+}
 </style>

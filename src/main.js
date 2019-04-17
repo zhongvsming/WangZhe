@@ -13,7 +13,12 @@ Vue.use(ElementUI);
 // 引入mui
 import './lib/mui/css/mui.min.css'
 import './lib/mui/css/icons-extra.css'
+// 引入iview
+import iView from 'iview';
+import 'iview/dist/styles/iview.css';
+Vue.use(iView);
 import router from './router'
+
 
 Vue.config.productionTip = false
 
