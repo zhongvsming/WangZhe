@@ -1,28 +1,28 @@
 <template>
-    <div class="container">
+    <div class="hero-container">
 
 
         <!-- 顶部title -->
-        <div class="titleBar">
+        <div class="hero-title">
            <span>全部英雄</span>
         </div>    
 
-        <div class="content">
+        <div class="hero-main">
              <Button@click="value2 = true"  style="width:50px;position:fixed;left:0;top:50%; opacity:0.4;"><span class="mui-icon mui-icon-arrowright"></span></Button>
 
             <!-- 侧边导航栏 -->
-            <div class="navMenu">
-                <Drawer title="Heros" placement="left" :closable="false" v-model="value2">
-                    <ul style="'text-style':none;">
-                        <li v-for="item of heros" :key="item.id" class="menuLi" >
-                            <img :src="item.url" alt="" style="width:50px;height:50px"><span style="display:'inline-block;height:100%;fontSize:1.5em;'line-height':50px;">{{item.name}}</span>
+            <div class="hero-nav">
+                <Drawer title="Heros" placement="left" :closable="false" v-model="value2" width="160px" class="drawer">
+                    <ul>
+                        <li v-for="item of heros" :key="item.id">
+                            <img class="imgClass" :src="item.url" alt="图片无法显示" width="50px" height="50px"><span>{{item.name}}</span>
                         </li>    
                     </ul>
                 </Drawer>
             </div>   
 
             <!-- 内容区域 -->
-            <div class="main">
+            <div class="hero-content">
                 <router-view></router-view>
             </div>    
         </div>    
@@ -70,31 +70,41 @@
     }
 </script>
 
-<style lang="scss" scoped>
-.container{
-    .titleBar{
+<style lang="scss" >
+// .hero-container::-webkit-scrollbar {display:none}
+ .hero-title{
         width:100%;
         height:35px;
         text-align:center;
         background-color:#000;
         color:gold;
         position:fixed;
-
+        z-index:1;
         span{
         line-height:35px;
         }
     }
-    .content{
-    position:relative;
-
-        // display:flex;
-        // background:#000;
+ .hero-main{
+    //    position:relative;
         padding-top:35px;
-        .main{
-            // margin-left:10px;
-            // border:1px red solid;
-            // background:#fff;
-        }
+    }
+
+.drawer{
+    li{
+       list-style:none;
+    }
+    ul li img{
+        vertical-align:middle;
+    }
+    span{
+        margin-left:10px;
+        font-size:1.3em;
+        color:black;
     }
 }
+.ivu-drawer-body::-webkit-scrollbar {
+    display:none
+    }
+
+
 </style>
