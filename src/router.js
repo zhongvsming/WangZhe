@@ -2,7 +2,7 @@ import Vue from 'vue'
 import Router from 'vue-router'
 import Home from './components/home/Home.vue'
 import Hero from './components/hero/Hero.vue'
-import Spcific from './components/hero/HeroSpci.vue'
+import Order from './components/order/Order.vue'
 
 
 Vue.use(Router)
@@ -26,6 +26,11 @@ export default new Router({
       //   {path:'',component:Spcific},
       //   {path:'/spcific',component:Spcific}
       // ]
+    },
+    {
+      path: '/order',
+      name: 'order',
+      component: Order,
     },
     {
       path: '/about',
