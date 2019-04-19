@@ -22,10 +22,10 @@ export default new Router({
       path: '/hero',
       name: 'hero',
       component: Hero,
-      children:[
-        {path:'',component:Spcific},
-        {path:'/spcific',component:Spcific}
-      ]
+      // children:[
+      //   {path:'',component:Spcific},
+      //   {path:'/spcific',component:Spcific}
+      // ]
     },
     {
       path: '/about',

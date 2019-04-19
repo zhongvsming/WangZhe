@@ -52,9 +52,7 @@ export default {
   margin-top: 60px; */
   background-color:#fff;
 }
-.main{
- 
-}
+
 .tabbar{
   width:100%;
   height:50px;
