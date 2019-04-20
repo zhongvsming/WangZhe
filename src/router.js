@@ -3,7 +3,7 @@ import Router from 'vue-router'
 import Home from './components/home/Home.vue'
 import Hero from './components/hero/Hero.vue'
 import Order from './components/order/Order.vue'
-
+import Mine from './components/mine/Mine.vue'
 
 Vue.use(Router)
 
@@ -30,7 +30,12 @@ export default new Router({
     {
       path: '/order',
       name: 'order',
-      component: Order,
+      component: Order
+    },
+    {
+      path: '/mine',
+      name: 'mine',
+      component: Mine
     },
     {
       path: '/about',

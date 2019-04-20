@@ -7,7 +7,7 @@
         <!-- 英雄基本信息 -->
         <div class="baseInfo">
             <div class="title">
-                 <span>{{hero.subName}}</span> <button style="width:70px; background-color:yellow; margin:10px;" @click="buy">{{hero.price}}&nbsp; buy</button>
+                 <span>{{hero.subName}}</span> <button @click="buy">{{hero.price+' buy'}}</button>
             </div>    
             <h1>{{hero.name}}</h1> 
             <ul>
@@ -46,6 +46,7 @@
                 //     {name:'独立兮山之上', spic:'瑶附身到其他英雄，赋予附灵目标真实护盾（抵挡真实伤害），附身状态技能获得增强并且刷新所有技能冷却。附身状态：盾破会被击落下来进入CD，主动脱离附灵目标会返还50%冷却时间', url:'https://game.gtimg.cn/images/yxzj/img201606/heroimg/505/50530.png'  }
                 // ]
                 // }
+    
             }
         },
         props:[
@@ -54,10 +55,14 @@
         methods:{
             buy(){
                 console.log('method buy active')
-                var buyHero = {id:this.hero.id,name:this.hero.name,headImg:this.hero.headImg,price:this.hero.price,selected:true}
-                console.log(buyHero)
+               var buyHero = {id:this.hero.id,name:this.hero.name,subName:this.hero.subName,headImg:this.hero.headImg,price:this.hero.price,selected:false}
+               this.$store.commit('addToCart',buyHero)
+
             }
-        }
+        },
+        computed: {
+
+        },
     }
 </script>
 
@@ -91,7 +96,12 @@
                 margin:0 10px;
             }
             button{
+                width:70px;
+                margin:10px;
                 color:orange;
+            }
+            .btnClass{
+                background-color:yellow;
             }
         }
         .skill{
