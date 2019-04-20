@@ -7,7 +7,7 @@
         <!-- 英雄基本信息 -->
         <div class="baseInfo">
             <div class="title">
-                 <span>{{hero.subName}}</span><button style="width:60px; background-color:yellow; margin:10px;">buy</button>
+                 <span>{{hero.subName}}</span> <button style="width:70px; background-color:yellow; margin:10px;" @click="buy">{{hero.price}}&nbsp; buy</button>
             </div>    
             <h1>{{hero.name}}</h1> 
             <ul>
@@ -50,7 +50,14 @@
         },
         props:[
             'hero'
-        ]
+        ],
+        methods:{
+            buy(){
+                console.log('method buy active')
+                var buyHero = {id:this.hero.id,name:this.hero.name,headImg:this.hero.headImg,price:this.hero.price,selected:true}
+                console.log(buyHero)
+            }
+        }
     }
 </script>
 
@@ -82,6 +89,9 @@
             }
             ul{
                 margin:0 10px;
+            }
+            button{
+                color:orange;
             }
         }
         .skill{
