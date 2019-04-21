@@ -1,14 +1,19 @@
 <template>
     <div class="order-container">
-        <div class="order-title">
-            <h1>购物车</h1>
-            <h2>共{{cartNum}}件商品</h2>
-        </div>   
-
-        <div class="order-main">
-            <card-component v-for="item of cart" :goodInfo="item"></card-component>
+        <!-- 可滑动区域 -->
+        <div class="order-scroll">
+            <!-- 标题栏 -->
+            <div class="order-title">
+                <h1>购物车</h1>
+                <h2>共{{cartNum}}件商品</h2>
+            </div>   
+            <!-- 内容区 -->
+            <div class="order-main">
+                <card-component v-for="item of cart" :goodInfo="item"></card-component>
+            </div> 
         </div>    
-
+           
+        <!-- 结算栏 -->
         <div class="order-buy">
             <div> <input type="checkbox" id="buy" v-model="allSelec"><label for="buy">全选</label></div>
             <div>合计：<span>¥{{calTotal}}</span><button>结算</button></div>
@@ -72,15 +77,28 @@
 
 <style lang="scss" scoped>
 .order-container{
-    min-height:700px;
+    // min-height:850px;
+    width:100%;
     background:#c3c3c3;
     height:100%;
-    position:relative;
+    position:absolute;
+    overflow-y:hidden;
+}
+.order-scroll{
+    height:-webkit-calc(100% - 50px);
+    height:-moz-calc(100% - 50px);
+    height:calc(100% - 50px);
+    overflow-y:scroll;
+    
+}
+.order-main{
+     position:relative;
+     bottom:60px;
 }
 .order-title{
-    background:#333;
-    min-height:150px;
-    position:relative;
+    background:#222;
+    height:150px;
+    // position:relative;
     h1{
         color:gold;
         padding:10px
@@ -93,16 +111,16 @@
 }
 .order-buy{
     width:100%;
-    background:white;
+    background:yellow;
     padding:0 20px 0 20px;
     height:50px;
-    bottom:50px;
-    position:fixed;
+    bottom:0;
+    position:absolute;
     display:flex;
     justify-content:space-between;
     font-size:1.3em;
     align-items:center;
-    border:1px yellow solid;
+    // border-top:1px black solid;
     button{
         width:100px;
         height:40px;

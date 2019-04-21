@@ -1,5 +1,5 @@
 <template>
-    <div>
+    <div class="login-container">
         <div class="login-logo">
             <div class="login-circle">
                 <img src="./login.png" width="80px" height="80px">
@@ -29,6 +29,11 @@
 </script>
 
 <style lang="scss" scoped>
+.login-container{
+    position:absolute;
+    width:100%;
+    height:100%;
+}
 .login-logo{
     height:230px;
     background:#222;

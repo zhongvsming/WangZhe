@@ -8,7 +8,7 @@
         <div class="card-info">
             <h3>{{goodInfo.name}}</h3>
             <p class="p1">{{goodInfo.subName}}</p>
-            <p class="p2">{{goodInfo.price}}</p>
+            <p class="p2">¥{{goodInfo.price}}</p>
         </div>    
 
     </div>
@@ -30,12 +30,12 @@
 <style lang="scss" scoped>
     .card-container{
         width:80%;
-        height:110px;
+        height:80px;
         background:white;
-        border-radius:10px;
+        border-radius:20px;
         margin:10px auto;
-        position:relative;
-        bottom:70px;
+        // position:relative;
+        // bottom:70px;
         // border:yellow medium solid;
         padding:0 5px 0 5px;
         display:flex;
@@ -47,23 +47,21 @@
         align-items:center;
 
         img{
-            width:75px;
-            height:75px;
+            width:60px;
+            height:60px;
         }
         input{
-            width:30px;
-            height:30px;
+            width:20px;
+            height:20px;
             margin:0 10px;
-            
-        
         }
     }
     .card-info{
         min-width:80px;
-        min-height:80px;
+        min-height:60px;
         display:flex;
         flex-direction:column;
-        justify-content:space-between;
+        justify-content:space-around;
         // float:right;
         // border:pink medium solid;
      .p1{

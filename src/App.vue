@@ -1,8 +1,12 @@
 <template>
   <div id="app">
+
     <!-- 内容区域 -->
     <div class="main">
-         <router-view></router-view>
+        <transition name="main">
+           <!-- <router-view style="position:absolute;"></router-view>       -->
+           <router-view></router-view>      
+        </transition>
     </div>     
 
     <!-- 底部导航栏 -->
@@ -44,15 +48,38 @@ export default {
 
 <style>
 #app {
-  /* font-family: 'Avenir', Helvetica, Arial, sans-serif;
+  font-family: 'Avenir', Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  text-align: center;
+  /* text-align: center;
   color: #2c3e50;
   margin-top: 60px; */
   background-color:#fff;
+  overflow-x:hidden;
+  margin: 0;
+  padding:0;
+  height: 100%;
 }
+.main-enter-active,.main-leave-active{
+  transition:all 0.5s;
+}
+.main-enter{
+  opacity:0;
+  transform:translateX(-100%);
+  /* position:absolute; */
 
+}
+.main-leave-to{
+  opacity:0;
+  transform:translateX(100%);
+  /* position:absolute; */
+}
+.main{
+  height:-webkit-calc(100% - 50px);
+  height:-moz-calc(100% - 50px);
+  height:calc(100% - 50px); 
+  position:relative;
+}
 .tabbar{
   width:100%;
   height:50px;

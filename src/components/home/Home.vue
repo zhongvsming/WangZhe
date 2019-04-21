@@ -1,5 +1,5 @@
 <template>
-    <div class="container">
+    <div class="home-container">
         <!-- 轮播图 -->
         <div class="banner">
             <el-carousel height="150px">
@@ -112,8 +112,10 @@
 </script>
 
 <style lang="scss">
-    .container{
-   
+    .home-container{
+        width:100%;
+        height:100%;
+         position:absolute;
     }
     .banner{
         img{

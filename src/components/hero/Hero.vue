@@ -160,16 +160,8 @@
 <style lang="scss" >
 .hero-container{
     overflow-x:hidden;
+    position:absolute;
 }
-// .hero-container::-webkit-scrollbar {
-//     display:none
-//     }
-// .hero-main::-webkit-scrollbar {
-//     display:none
-//     }
-// .hero-content::-webkit-scrollbar {
-//     display:none
-//     }
  .hero-title{
         width:100%;
         height:35px;
@@ -199,11 +191,12 @@
         color:black;
     }
 }
-.ivu-drawer-body::-webkit-scrollbar {
-    display:none
-    }
+// .ivu-drawer-body::-webkit-scrollbar {
+//     display:none
+//     }
 .hero-li-acitve{
-    background:yellow;
+    // background:rgba(255,255,255,0.8);
+    background:lightyellow;
 
 }
 
