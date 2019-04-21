@@ -111,7 +111,7 @@
 }
 .order-buy{
     width:100%;
-    background:yellow;
+    background:lightyellow;
     padding:0 20px 0 20px;
     height:50px;
     bottom:0;

@@ -12,13 +12,13 @@
         <!-- 卡片区域 -->
         <div class="cards">
             <div class="cards-row1">
-                <img src="https://ossweb-img.qq.com/upload/webplat/info/yxzj/20190305/969081063248726.jpg" alt="图片无法显示">
-                <img src="https://ossweb-img.qq.com/upload/webplat/info/yxzj/20181210/86638782789061.jpg" alt="图片无法显示">
+                <router-link to="/home/baoliao"><img src="https://ossweb-img.qq.com/upload/webplat/info/yxzj/20190305/969081063248726.jpg" alt="图片无法显示"></router-link>
+                <router-link to="/home/yingdi"><img src="https://ossweb-img.qq.com/upload/webplat/info/yxzj/20181210/86638782789061.jpg" alt="图片无法显示"></router-link>
 
             </div>
             <div class="cards-row2">
-                <img src="https://ossweb-img.qq.com/upload/webplat/info/yxzj/20181210/49934964177020.jpg" alt="图片无法显示">
-                <img src="https://ossweb-img.qq.com/upload/webplat/info/yxzj/20190305/58993377293822.jpg" alt="图片无法显示">
+                <router-link to="/home/chuancheng"><img src="https://ossweb-img.qq.com/upload/webplat/info/yxzj/20181210/49934964177020.jpg" alt="图片无法显示"></router-link>
+                <router-link to="/home/baoliao"><img src="https://ossweb-img.qq.com/upload/webplat/info/yxzj/20190305/58993377293822.jpg" alt="图片无法显示"></router-link>
             </div>
         </div>    
 
@@ -139,7 +139,7 @@
         }
         img{
             // width: 85%;
-            width: 48%;
+            width: 98%;
             height:100px;
             // box-shadow: 5px 5px 5px #888888;
             border-radius: 8px;
