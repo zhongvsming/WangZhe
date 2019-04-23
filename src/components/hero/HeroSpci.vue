@@ -8,7 +8,7 @@
         <div class="baseInfo">
             <div class="title">
                  <span>{{hero.subName}}</span>
-                  <button @click="showBall">{{hero.price+' buy'}}
+                  <button @click="showBall()">{{hero.price+' buy'}}
                  </button> 
             </div>    
             <h1>{{hero.name}}</h1> 
@@ -82,8 +82,13 @@
             },
             buy(){
                 // console.log('method buy active')
-               var buyHero = {id:this.hero.id,name:this.hero.name,subName:this.hero.subName,headImg:this.hero.headImg,price:this.hero.price,selected:false}
-               this.$store.commit('addToCart',buyHero)
+                if(!this.$store.getters.isHasItem(this.hero.id)){
+                    var buyHero = {id:this.hero.id,name:this.hero.name,subName:this.hero.subName,headImg:this.hero.headImg,price:this.hero.price,selected:false,num:1}
+                    this.$store.commit('addToCart',buyHero)
+                }else{
+                    this.$store.commit('addOne',this.hero.id)
+                }
+               
             },
 
         },

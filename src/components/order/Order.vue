@@ -9,7 +9,7 @@
             </div>   
             <!-- 内容区 -->
             <div class="order-main">
-                <card-component v-for="item of cart" :goodInfo="item" ref="cardcomponent" @selecteall="selecteAll" @noselecteall="noSelecteAll"></card-component>
+                <card-component v-for="item of cart" :key="item.id" :goodInfo="item" ref="cardcomponent" @selecteall="selecteAll" @noselecteall="noSelecteAll"></card-component>
             </div> 
         </div>    
            
@@ -45,13 +45,7 @@
                 return this.$store.getters.getCartNum
             },
             calTotal(){
-                var total = 0
-                this.$store.getters.getCart.forEach(item => {
-                    if(item.selected===true){
-                        total+=item.price
-                    }
-                });
-                return total
+                return this.$store.getters.getCartTotalPrice
             }
         },
         watch: {

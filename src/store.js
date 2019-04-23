@@ -36,12 +36,26 @@ export default new Vuex.Store({
       });
     },
     delSelectedItem(state){
-      const index = 0
-      state.cart.forEach(item=>{
-        if(item.selected){
-          state.cart.splice(index,1)
+      for(var i=state.cart.length-1;i>=0;i--){
+        if(state.cart[i].selected){
+          state.cart.splice(i,1)
         }
-        index++
+      }
+    },
+    addOne(state,data){
+      state.cart.some(function(item){
+        if(item.id===data){
+          item.num++
+          return true
+        }
+      })
+    },
+    sutractOne(state,data){
+      state.cart.some(function(item){
+        if(item.id===data){
+          item.num--
+          return true
+        }
       })
     }
   },
@@ -65,6 +79,21 @@ export default new Vuex.Store({
       }else{
         return true
       }
+    },
+    isHasItem: (state) => (id) => {
+      return state.cart.some(item => item.id === id)
+    },
+    getItemyId: (state) => (id) => {
+      return state.cart.find(item => item.id === id)
+    },
+    getCartTotalPrice(state){
+      var total = 0
+      state.cart.forEach(item => {
+          if(item.selected===true){
+              total+=item.price*item.num
+          }
+      });
+      return total
     }
   }
 })
