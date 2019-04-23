@@ -1,7 +1,8 @@
 <template>
     <div class="card-container">
         <div class="card-img">
-            <input type="checkbox" v-model="goodInfo.selected">
+            <!-- <input type="checkbox" v-model="goodInfo.selected" @click="isAllSelected"> -->
+            <input type="checkbox" v-model="goodSelected">
             <img :src="goodInfo.headImg">
         </div>    
 
@@ -20,7 +21,31 @@
         props:['goodInfo'],
         data(){
             return {
-                s:''
+                goodSelected:false,
+            }
+        },
+        methods: {
+            select(flag){
+                if(flag){
+                    this.goodSelected=true
+                }else{
+                    this.goodSelected=false
+
+                }
+            }
+        },
+        computed: {
+          
+        },
+        watch:{
+            goodSelected(newVal){
+                this.goodInfo.selected=newVal
+                if(this.$store.getters.isAllSelected){
+                    this.$emit('selecteall')
+                    // this.$emit('changex')
+                }else{
+                    this.$emit('noselecteall')
+                }
             }
         }
 

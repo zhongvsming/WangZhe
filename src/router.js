@@ -7,6 +7,8 @@ import Mine from './components/mine/Mine.vue'
 import BaoLiao from './components/home/BaoLiao.vue'
 import YingDi from './components/home/YingDi.vue'
 import ChuanCheng from './components/home/ChuanCheng.vue'
+import SaiShi from './components/home/SaiShi.vue'
+import Artical from './components/home/Artical.vue'
 
 Vue.use(Router)
 
@@ -55,6 +57,15 @@ export default new Router({
       path: '/home/chuancheng',
       name: 'chuancheng',
       component: ChuanCheng
+    },
+    {
+      path: '/home/saishi',
+      name: 'saishi',
+      component: SaiShi
+    },{
+      path: '/home/artical',
+      name: 'artical',
+      component: Artical
     },
     {
       path: '/about',

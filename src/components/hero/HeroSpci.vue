@@ -1,5 +1,5 @@
 <template>
-    <div class="container">
+    <div class="herospci-container">
         <!-- 标题栏 -->
         <div class="titleImg">
               <img :src="hero.headImg" alt="图片无法显示">
@@ -7,7 +7,9 @@
         <!-- 英雄基本信息 -->
         <div class="baseInfo">
             <div class="title">
-                 <span>{{hero.subName}}</span> <button @click="buy">{{hero.price+' buy'}}</button>
+                 <span>{{hero.subName}}</span>
+                  <button @click="showBall">{{hero.price+' buy'}}
+                 </button> 
             </div>    
             <h1>{{hero.name}}</h1> 
             <ul>
@@ -20,7 +22,7 @@
         <!-- 英雄技能 -->
         <div class="skill">
             <ul>
-                <li v-for="item of hero.skill">
+                <li v-for="item of hero.skill" :key="item.name">
                     <div class="row">
                         <img :src="item.url" style="width:50px;">
                         <h3 >{{item.name}}</h3>
@@ -29,6 +31,14 @@
                 </li>
             </ul>    
         </div>    
+        <!-- 购物车动画圆点 -->
+        <transition  
+            v-on:before-enter="beforeEnter"
+            v-on:enter="enter"
+            v-on:after-enter="afterEnter"
+            v-bind:css="false"> 
+             <div ref="ball" class="ball" v-show="ballShow" id="ball"></div>
+        </transition >    
 
     </div>
 </template>
@@ -38,27 +48,44 @@
         name:'hero-spci',
         data(){
             return {
-                // yao:{id:0,name:'瑶',
-                // skill:[
-                //     {name:'山鬼·白鹿',spic:'被动：瑶被鹿灵守护着，当被晕眩，击退，击飞等硬控技能击中会立刻解除控制并变成鹿灵6秒（除压制效果以外）每30秒最多触发一次；鹿灵状态将会获得无法被攻击但也失去自己攻击别人的能力，灵鹿静怡的灵光会持续照拂敌人，减速30%。', url:'https://game.gtimg.cn/images/yxzj/img201606/heroimg/505/50500.png' },
-                //     {name:'若有人兮',  spic:'举杖引魄击退身边的敌人，能量波向前飞行造成法术伤害，在快飞到终点前会检测范围内的英雄并化成第二段能量球跟踪打击造成法术伤害和0.75秒晕眩和显形效果。', url:'https://game.gtimg.cn/images/yxzj/img201606/heroimg/505/50510.png'  },
-                //     {name:'风飒木萧', spic:'瑶持续5秒自动打击身边随机的敌人，最多3个目标，每次攻击都会造成法术伤害，技能开启期间内无法普攻。', url:' https://game.gtimg.cn/images/yxzj/img201606/heroimg/505/50520.png' },
-                //     {name:'独立兮山之上', spic:'瑶附身到其他英雄，赋予附灵目标真实护盾（抵挡真实伤害），附身状态技能获得增强并且刷新所有技能冷却。附身状态：盾破会被击落下来进入CD，主动脱离附灵目标会返还50%冷却时间', url:'https://game.gtimg.cn/images/yxzj/img201606/heroimg/505/50530.png'  }
-                // ]
-                // }
-    
+                ballShow:false
             }
         },
         props:[
             'hero'
         ],
         methods:{
+            beforeEnter(el){
+                // console.log('before enter')
+                el.style.transform="translate(0,0)";
+            },
+            enter(el,done){
+                const ballPosition = document.getElementById("ball").getBoundingClientRect();
+                const badgePosition = document.getElementById("badge").getBoundingClientRect();
+                const xDist = badgePosition.left-ballPosition.left;
+                const yDist = badgePosition.top-ballPosition.top;
+            
+                el.offsetWidth;
+                el.style.transform=`translate(${xDist}px,${yDist}px)`;                    
+                el.style.transition="all 0.5s cubic-bezier(.4,-0.3,1,.68)";
+                done()
+            },
+            afterEnter(el){
+                // console.log('after enter')
+                
+                this.ballShow=!this.ballShow
+                this.buy()
+            },
+            showBall(){
+                // console.log('button click')
+                this.ballShow=!this.ballShow
+            },
             buy(){
-                console.log('method buy active')
+                // console.log('method buy active')
                var buyHero = {id:this.hero.id,name:this.hero.name,subName:this.hero.subName,headImg:this.hero.headImg,price:this.hero.price,selected:false}
                this.$store.commit('addToCart',buyHero)
+            },
 
-            }
         },
         computed: {
 
@@ -67,7 +94,9 @@
 </script>
 
 <style lang="scss" scoped>
-    .container{
+    .herospci-container{
+        // height:100%;
+        // position:relative;
         .titleImg{
             // width:100%;
             height:150px;
@@ -99,6 +128,7 @@
                 width:70px;
                 margin:10px;
                 color:orange;
+                position:relative;
             }
             .btnClass{
                 background-color:yellow;
@@ -118,7 +148,18 @@
             }
         }
     }
-    .container::-webkit-scrollbar {
-    display:none
-    }
+        // .container::-webkit-scrollbar {
+        // display:none
+        // }
+        .ball{
+                width:13px;
+                height:13px;
+                background:red;
+                border-radius:50%;
+                padding:0;
+                position:absolute;
+                left:87%;
+                top:32%;
+                z-index:99;
+            }
 </style>

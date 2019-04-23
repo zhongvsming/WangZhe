@@ -9,14 +9,15 @@
             </div>   
             <!-- 内容区 -->
             <div class="order-main">
-                <card-component v-for="item of cart" :goodInfo="item"></card-component>
+                <card-component v-for="item of cart" :goodInfo="item" ref="cardcomponent" @selecteall="selecteAll" @noselecteall="noSelecteAll"></card-component>
             </div> 
         </div>    
            
         <!-- 结算栏 -->
         <div class="order-buy">
-            <div> <input type="checkbox" id="buy" v-model="allSelec"><label for="buy">全选</label></div>
-            <div>合计：<span>¥{{calTotal}}</span><button>结算</button></div>
+            <div> <input type="checkbox" id="buy" v-model="allSelec" @click="isSelectAll"><label for="buy">全选</label>
+            <button v-show="true" style="margin-left:10px;border:0px;" @click="delSelectedItem">删除</button></div>
+            <div>合计：<span>¥{{calTotal}}</span><button class="blance">结算</button></div>
         </div>    
 
 
@@ -29,7 +30,8 @@
         name:'oder',
         data(){
             return {
-                allSelec:false
+                allSelec:false,
+                // x:true
             }
         },
         components:{
@@ -50,27 +52,37 @@
                     }
                 });
                 return total
-            },
-            isAllSelected(){
-                return this.$store.getters.isAllSelected
             }
         },
         watch: {
-            allSelec(newValue){
-                if(newValue===true){
-                   this.$store.commit('selectedAll')
+     
+        },
+        methods: {
+            selecteAll(){
+                // console.log('selecteAll')
+                this.allSelec=true
+            },
+            noSelecteAll(){
+                // console.log('noSelecteAll')
+                this.allSelec=false
+            },
+            isSelectAll(){
+                const arr = this.$refs.cardcomponent
+                if(this.allSelec===false){
+                this.$store.commit('selectedAll')
+                arr.forEach(element => {
+                    element.select(true)
+                });
                 }else{
-                    this.$store.commit('cancelSelectedAll')
+                this.$store.commit('cancelSelectedAll')
+                arr.forEach(element => {
+                    element.select(false)
+                });
                 }
             },
-            isAllSelected(newValue){
-                if(newValue){
-                    this.$store.commit('selectedAll')
-                }else{
-                    this.$store.commit('cancelSelectedAll')                    
-                }
+            delSelectedItem(){
+                this.$store.commit('delSelectedItem')
             }
-
         },
     }
 </script>
@@ -121,7 +133,7 @@
     font-size:1.3em;
     align-items:center;
     // border-top:1px black solid;
-    button{
+    .blance{
         width:100px;
         height:40px;
         background:deeppink;

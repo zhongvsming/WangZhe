@@ -21,7 +21,7 @@
                 <span class="mui-tab-label">英雄</span>
               </router-link>
               <router-link class="mui-tab-item" to="/order">
-                <span class="mui-icon mui-icon-extra mui-icon-extra-cart"><span class="mui-badge">9</span></span>
+                <span class="mui-icon mui-icon-extra mui-icon-extra-cart"><span class="mui-badge" id="badge">{{getOrderNum}}</span></span>
                 <span class="mui-tab-label">订单</span>
               </router-link>
               <router-link class="mui-tab-item" to="/mine">
@@ -42,7 +42,12 @@ export default {
   name: 'app',
   components: {
     // HelloWorld
-  }
+  },
+  computed: {
+    getOrderNum(){
+        return this.$store.getters.getCartNum      
+    }
+  },
 }
 </script>
 

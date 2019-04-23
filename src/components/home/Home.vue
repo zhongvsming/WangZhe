@@ -18,7 +18,7 @@
             </div>
             <div class="cards-row2">
                 <router-link to="/home/chuancheng"><img src="https://ossweb-img.qq.com/upload/webplat/info/yxzj/20181210/49934964177020.jpg" alt="图片无法显示"></router-link>
-                <router-link to="/home/baoliao"><img src="https://ossweb-img.qq.com/upload/webplat/info/yxzj/20190305/58993377293822.jpg" alt="图片无法显示"></router-link>
+                <router-link to="/home/saishi"><img src="https://ossweb-img.qq.com/upload/webplat/info/yxzj/20190305/58993377293822.jpg" alt="图片无法显示"></router-link>
             </div>
         </div>    
 
@@ -27,22 +27,22 @@
              <el-tabs v-model="activeName" @tab-click="handleClick">
                 <el-tab-pane label="新闻" name="first">
                     <ul>
-                        <li v-for="item of gongGao" :key="item.id"><p>{{item.title}}</p></li>
+                        <li v-for="item of gongGao" :key="item.id" @click="articalDetail"><p>{{item.title}}</p></li>
                     </ul>    
                 </el-tab-pane>
                 <el-tab-pane label="公告" name="second">
                     <ul>
-                        <li v-for="item of xinWen" :key="item.id"><p>{{item.title}}</p></li>
+                        <li v-for="item of xinWen" :key="item.id" @click="articalDetail"><p>{{item.title}}</p></li>
                     </ul>  
                 </el-tab-pane>
                 <el-tab-pane label="活动" name="third">
                     <ul>
-                        <li v-for="item of huoDong" :key="item.id"><p>{{item.title}}</p></li>
+                        <li v-for="item of huoDong" :key="item.id" @click="articalDetail"><p>{{item.title}}</p></li>
                     </ul>  
                 </el-tab-pane>
                 <el-tab-pane label="赛事" name="fourth">
                     <ul>
-                        <li v-for="item of xinWen" :key="item.id"><p>{{item.title}}</p></li>
+                        <li v-for="item of xinWen" :key="item.id" @click="articalDetail"><p>{{item.title}}</p></li>
                     </ul>  
                 </el-tab-pane>
             </el-tabs>
@@ -106,6 +106,10 @@
         methods: {
             handleClick(tab, event) {
                 console.log(tab, event);
+           },
+           articalDetail(){
+               console.log('ok')
+               this.$router.push({name:'artical'})
            }
         }
     }
