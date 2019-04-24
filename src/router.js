@@ -9,6 +9,10 @@ import YingDi from './components/home/YingDi.vue'
 import ChuanCheng from './components/home/ChuanCheng.vue'
 import SaiShi from './components/home/SaiShi.vue'
 import Artical from './components/home/Artical.vue'
+import Login from './components/mine/login.vue'
+import Account from './components/mine/Account.vue'
+import Suggestion from './components/mine/Suggestion.vue'
+import Agreement from './components/mine/Agreement.vue'
 
 Vue.use(Router)
 
@@ -62,10 +66,32 @@ export default new Router({
       path: '/home/saishi',
       name: 'saishi',
       component: SaiShi
-    },{
+    },
+    {
       path: '/home/artical',
       name: 'artical',
       component: Artical
+    },
+    // Mine子页面
+    {
+      path: '/mine/login',
+      name: 'login',
+      component: Login
+    },
+    {
+      path: '/mine/account',
+      name: 'account',
+      component: Account
+    },
+    {
+      path: '/mine/suggestion',
+      name: 'suggestion',
+      component: Suggestion
+    },
+    {
+      path: '/mine/agreement',
+      name: 'agreement',
+      component: Agreement
     },
     {
       path: '/about',
