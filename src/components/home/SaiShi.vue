@@ -10,7 +10,7 @@
         <div class="live">
             <h1>直播</h1>
             <p>LIVE</p>
-            <p style="text-align: center"><iframe class="video_iframe" style="z-index:1;" src="https://apd-32fa08de03a52878e3584cb5fcbefb26.v.smtcdns.com/om.tc.qq.com/AhuHRZWRqPUaOqp7xP3jLvee8zEicyFwSeIstVkfeQNk/uwMROfz0r5zEYaQXGdGnC2dfJ6luU4SvDHGu4O_i_TA7Xarv/a076088ej4z.p701.1.mp4?sdtfrom=v1010&guid=9eb1c3bd47d961a1f0b788d370508aa4&vkey=0F6FD5871959BD8131AC2503B53CFA168923DC0E095C32F09E439349E3DAF6F09FFDADA139EDD3D790D17BA3A52AAE48D7AE853ED3CA0A280EB454840ADB2BF122E65936DB114F3F508FE79A5D4040FBF60D7F0A663EA6198C304F6FE292EA277AD287CB41B66FE1D9B2DAB74D54F605E0993FFD79DBEAA9&amp;width=500&amp;height=375&amp;auto=0" allowfullscreen="" frameborder="0" height="375" width="100%"></iframe></p>
+            <p style="text-align: center"><iframe class="video_iframe" style="z-index:1;" src="http://43.243.244.26/variety.tc.qq.com/Ag6IrZvd6w6MgKJ058MeNu37_n05Mpbo6t0sGOYHtJqo/p020184d79o.p201.1.mp4?fmt=shd&sdtfrom=&platform=10201&vkey=FC0B404433FDBC04851C05F0B2210D512C454C8631388A626E1285850AA39B7801A3F55D49A3458825CABE29E49953AEB18429F6ECF497EFF6EF43FE7641A650F3B2A6ABF8078990189B2B340B62AE6D4ADDB84F724107D4CEF5E913831ADE65548F13D2CE8E5F7C572E55B9A6101C5E4B0D40B7E1C6730B&level;=0&amp;width=500&amp;height=375&amp;auto=0" allowfullscreen="" frameborder="0" height="375" width="100%"></iframe></p>
         </div>    
         <!-- 赛程 -->
         <!-- <div class="saicheng">

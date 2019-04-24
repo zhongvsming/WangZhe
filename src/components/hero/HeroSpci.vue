@@ -36,7 +36,7 @@
             v-on:before-enter="beforeEnter"
             v-on:enter="enter"
             v-on:after-enter="afterEnter"
-            v-bind:css="false"> 
+            > 
              <div ref="ball" class="ball" v-show="ballShow" id="ball"></div>
         </transition >    
 
@@ -55,11 +55,16 @@
             'hero'
         ],
         methods:{
+            showBall(){
+                // console.log('button click')
+                this.ballShow=!this.ballShow
+            },
             beforeEnter(el){
                 // console.log('before enter')
                 el.style.transform="translate(0,0)";
             },
             enter(el,done){
+                // console.log('enter')
                 const ballPosition = document.getElementById("ball").getBoundingClientRect();
                 const badgePosition = document.getElementById("badge").getBoundingClientRect();
                 const xDist = badgePosition.left-ballPosition.left;
@@ -67,21 +72,17 @@
             
                 el.offsetWidth;
                 el.style.transform=`translate(${xDist}px,${yDist}px)`;                    
-                el.style.transition="all 0.5s cubic-bezier(.4,-0.3,1,.68)";
+                el.style.transition="all 0.6s cubic-bezier(.4,-0.3,1,.68)";
                 done()
             },
             afterEnter(el){
                 // console.log('after enter')
-                
                 this.ballShow=!this.ballShow
+                // setTimeout(this.buy(),5000)
                 this.buy()
-            },
-            showBall(){
-                // console.log('button click')
-                this.ballShow=!this.ballShow
-            },
+            }, 
             buy(){
-                // console.log('method buy active')
+                console.log('buy')
                 if(!this.$store.getters.isHasItem(this.hero.id)){
                     var buyHero = {id:this.hero.id,name:this.hero.name,subName:this.hero.subName,headImg:this.hero.headImg,price:this.hero.price,selected:false,num:1}
                     this.$store.commit('addToCart',buyHero)
